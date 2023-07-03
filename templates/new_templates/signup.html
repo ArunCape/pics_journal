@@ -1,0 +1,46 @@
+{% extends 'new_templates/base.html' %}
+
+{% block content %}
+
+	<div class="col-md-6 offset-md-3">
+		<h1>Register</h1>
+		<br/>
+
+		<form action="" method="post">
+			{% csrf_token %}
+		
+			<div class="col-md-4">
+				<label for="validationCustomUsername" class="form-label">Username</label>
+				<div class="input-group has-validation">
+					<span class="input-group-text" id="inputGroupPrepend">@</span>
+					<input type="text" name="username"  class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+				</div>
+			</div><br>
+			
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Email address</label>
+				<input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+			</div>			
+
+			<label for="inputPassword5" class="form-label">Password</label>
+			<input type="password" name="password" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock">
+			<div id="passwordHelpBlock" class="form-text">
+				Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+			</div>
+
+			<label for="inputPassword5" class="form-label">Confirm Password</label>
+			<input type="password" name="password2" id="inputPassword5" class="form-control" aria-labelledby="passwordHelpBlock">
+			<div id="passwordHelpBlock" class="form-text">
+				Should match with the above entered password.
+			</div><br>
+
+			<button type="submit" class="btn btn-secondary">Create</button>
+			<div class="text-center mt-5 space-x-2">
+				<p class="text-base"> Already registered? <a href="{% url 'signin' %}" class=""> Login Here </a></p>
+			</div>
+	
+		</form>
+
+	</div>
+
+{% endblock %}
